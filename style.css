@@ -1,0 +1,246 @@
+
+/* GENERAL SETTINGS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f4ff;
+    color: #30204f;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #210b40, #51217e, #7639aa);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+header p {
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: #eadbff;
+}
+
+/* NAVIGATION */
+nav {
+    background: white;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 45px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(50, 20, 80, 0.08);
+}
+
+nav a {
+    text-decoration: none;
+    color: #48216d;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 75px 8%;
+    scroll-margin-top: 75px;
+}
+
+/* HOME */
+#home {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background: #fbfaff;
+}
+
+#home img {
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 7px solid #e6d6ff;
+    box-shadow: 0 10px 30px rgba(91, 33, 145, 0.15);
+}
+
+.home-content {
+    flex: 1;
+}
+
+.home-content h2 {
+    font-size: 40px;
+    color: #38205f;
+    margin-bottom: 30px;
+}
+
+.home-content h2 span {
+    color: #8b3fd1;
+}
+
+.home-content h3 {
+    color: #922dcc;
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.home-content p {
+    color: #75658e;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #7629bd, #a855f7);
+    color: white;
+    padding: 17px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(118, 41, 189, 0.3);
+}
+
+/* SECTION TITLES */
+.section-title {
+    font-size: 32px;
+    color: #572482;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(70, 30, 100, 0.08);
+    border-left: 5px solid #963fd1;
+}
+
+.card h3 {
+    color: #752cac;
+    margin-bottom: 15px;
+}
+
+.card p {
+    line-height: 1.8;
+    color: #75658e;
+}
+
+/* SKILLS */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.skill {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    color: #652b91;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(70, 30, 100, 0.08);
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #7629bd;
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* JAVA CODE */
+.code-container {
+    background: #21152f;
+    padding: 25px;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+.code-container h3 {
+    color: #d9a8ff;
+    margin-bottom: 20px;
+}
+
+pre {
+    color: #e7d5ff;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+/* FOOTER */
+footer {
+    background: #210b40;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    color: #e0c8ff;
+    margin: 5px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    nav {
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    #home {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 7%;
+    }
+
+    #home img {
+        width: 250px;
+        height: 320px;
+    }
+
+    .home-content h2 {
+        font-size: 30px;
+    }
+
+    section {
+        padding: 55px 7%;
+    }
+}

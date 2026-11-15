@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Margarette M. Valeroso | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>JEAN MARGARETTE M. VALEROSO</h1>
+        <p>BS Information Technology | Junior Programmer</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#personal">Personal Information</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#java">Java Code</a>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home">
+
+        <img src="profile.jpg" alt="My Profile Picture">
+
+        <div class="home-content">
+            <h2>Hello, I'm <span>Jean!</span></h2>
+            <h3>Welcome to My Portfolio</h3>
+
+            <p>
+                I am a first-year Bachelor of Science in
+                Information Technology student who enjoys
+		        learning about computers, technology, and programming.
+		        I am continuously improving my skills and knowledge
+		        to become a successful professional in the future.            
+	        </p>
+
+            <a href="#personal" class="btn">
+                Explore My Profile
+            </a>
+        </div>
+
+    </section>
+
+    <!-- PERSONAL INFORMATION -->
+    <section id="personal">
+
+        <h2 class="section-title">Personal Information</h2>
+
+        <div class="card">
+            <h3>About Me</h3>
+            <p>
+                Name: Jean Margarette M. Valeroso<br>
+                Course: BS Information Technology<br>
+                Year Level: First Year<br>
+                Position: Aspiring Junior Programmer
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Contact Information</h3>
+            <p>
+                Email: jeanvaleroso183@gmail.com<br>
+                Address: Brgy. Bacayao, Guimba, N.E<br>
+                Contact Number: 0927433319
+            </p>
+        </div>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <h2 class="section-title">Educational Background</h2>
+
+        <div class="card">
+            <h3>College</h3>
+            <p>
+                Bachelor of Science in Information Technology<br>
+                Our Lady of the Sacred Heart College of Guimba, Inc. <br>
+                First Year College
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Senior High School</h3>
+            <p>
+                Bonifacio Luz Natividad Educational Foundation, Inc.<br>
+                Accountancy, Business, and Management (ABM)<br>
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Junior High School</h3>
+            <p>
+                Bartolome Sangalang National High School<br>
+                2024
+            </p>
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Java Programming</div>
+            <div class="skill">Problem Solving</div>
+            <div class="skill">Computer Skills</div>
+            <div class="skill">Teamwork</div>
+        </div>
+
+    </section>
+
+    <!-- JAVA CODE -->
+    <section id="java">
+
+        <h2 class="section-title">Java Code</h2>
+
+        <div class="code-container">
+            <h3>My Final Performance Task (PeTa)</h3>
+
+            <pre>
+		import java.util.Scanner;
+
+public class TicTacToe {
+
+    static char[][] board = {
+        {'1', '2', '3'},
+        {'4', '5', '6'},
+        {'7', '8', '9'}
+    };
+
+    static char currentPlayer = 'X';
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        int player1Wins = 0;
+        int player2Wins = 0;
+        int draws = 0;
+
+        boolean playAgain = true;
+
+        System.out.println("==================================");
+        System.out.println("          TIC TAC TOE");
+        System.out.println("==================================");
+        System.out.println("Player 1: X");
+        System.out.println("Player 2: O");
+
+        while (playAgain) {
+
+            resetBoard();
+
+            boolean gameOver = false;
+
+            while (!gameOver) {
+
+                displayBoard();
+
+                System.out.println("\nPlayer " +
+                        (currentPlayer == 'X' ? "1" : "2")
+                        + " (" + currentPlayer + ")");
+
+                System.out.print("Enter position (1-9): ");
+
+                int position;
+
+                if (!input.hasNextInt()) {
+                    System.out.println("Invalid input! Enter a number.");
+                    input.next();
+                    continue;
+                }
+
+                position = input.nextInt();
+
+                if (position < 1 || position > 9) {
+                    System.out.println("Invalid position! Choose 1-9.");
+                    continue;
+                }
+
+                int row = (position - 1) / 3;
+                int col = (position - 1) % 3;
+
+                if (board[row][col] == 'X' ||
+                    board[row][col] == 'O') {
+
+                    System.out.println("Position already occupied!");
+                    continue;
+                }
+
+                board[row][col] = currentPlayer;
+
+                if (checkWinner()) {
+
+                    displayBoard();
+
+                    System.out.println("\n==================================");
+                    System.out.println("PLAYER " +
+                            (currentPlayer == 'X' ? "1" : "2")
+                            + " WINS!");
+                    System.out.println("==================================");
+
+                    if (currentPlayer == 'X') {
+                        player1Wins++;
+                    } else {
+                        player2Wins++;
+                    }
+
+                    gameOver = true;
+
+                } else if (checkDraw()) {
+
+                    displayBoard();
+
+                    System.out.println("\n==================================");
+                    System.out.println("       IT'S A DRAW!");
+                    System.out.println("==================================");
+
+                    draws++;
+                    gameOver = true;
+
+                } else {
+
+                    switchPlayer();
+
+                }
+            }
+
+            System.out.println("\n========== SCOREBOARD ==========");
+            System.out.println("Player 1 (X) Wins: " + player1Wins);
+            System.out.println("Player 2 (O) Wins: " + player2Wins);
+            System.out.println("Draws: " + draws);
+            System.out.println("================================");
+
+            System.out.print("\nPlay again? (Y/N): ");
+
+            String answer = input.next();
+
+            if (!answer.equalsIgnoreCase("Y")) {
+                playAgain = false;
+            }
+        }
+
+        System.out.println("\n==================================");
+        System.out.println("     THANK YOU FOR PLAYING!");
+        System.out.println("==================================");
+
+        System.out.println("FINAL SCORE:");
+        System.out.println("Player 1: " + player1Wins);
+        System.out.println("Player 2: " + player2Wins);
+        System.out.println("Draws: " + draws);
+
+        input.close();
+    }
+
+    // Display the game board
+    public static void displayBoard() {
+
+        System.out.println("\n");
+
+        for (int i = 0; i < 3; i++) {
+
+            System.out.println("   " + board[i][0] +
+                    " | " + board[i][1] +
+                    " | " + board[i][2]);
+
+            if (i < 2) {
+                System.out.println("  ---+---+---");
+            }
+        }
+
+        System.out.println();
+    }
+
+    // Check if a player wins
+    public static boolean checkWinner() {
+
+        // Check rows
+        for (int i = 0; i < 3; i++) {
+
+            if (board[i][0] == currentPlayer &&
+                board[i][1] == currentPlayer &&
+                board[i][2] == currentPlayer) {
+
+                return true;
+            }
+        }
+
+        // Check columns
+        for (int i = 0; i < 3; i++) {
+
+            if (board[0][i] == currentPlayer &&
+                board[1][i] == currentPlayer &&
+                board[2][i] == currentPlayer) {
+
+                return true;
+            }
+        }
+
+        // Check diagonals
+        if (board[0][0] == currentPlayer &&
+            board[1][1] == currentPlayer &&
+            board[2][2] == currentPlayer) {
+
+            return true;
+        }
+
+        if (board[0][2] == currentPlayer &&
+            board[1][1] == currentPlayer &&
+            board[2][0] == currentPlayer) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    // Check if the game is a draw
+    public static boolean checkDraw() {
+
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 3; j++) {
+
+                if (board[i][j] != 'X' &&
+                    board[i][j] != 'O') {
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    // Switch between players
+    public static void switchPlayer() {
+
+        if (currentPlayer == 'X') {
+            currentPlayer = 'O';
+        } else {
+            currentPlayer = 'X';
+        }
+    }
+
+    // Reset the board
+    public static void resetBoard() {
+
+        char number = '1';
+
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 3; j++) {
+
+                board[i][j] = number;
+                number++;
+            }
+        }
+
+        currentPlayer = 'X';
+    }
+}
+
+            </pre>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Jean Margarette M. Valeroso | My Personal Portfolio</p>
+        <p>Designed with HTML and CSS</p>
+    </footer>
+
+</body>
+</html>
